@@ -1,0 +1,3 @@
+AddType application/x-httpd-php .htm .html
+AddType text/javascript .js
+AddType text/css .css
