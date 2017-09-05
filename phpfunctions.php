@@ -97,14 +97,12 @@ function addItem($inputArray) {
 			VALUES (:thing1, :thing2, :thing3)';
 		
 	if ($query = $connection -> prepare($sql)) {
-		echo $sql;
 		$query -> bindParam(':thing1', $input1);
 		$query -> bindParam(':thing2', $input2);
 		$query -> bindParam(':thing3', $input3);
 		$query -> execute();
 	} else {
-		echo $sql;
-		print_r($connection -> error);
+		echo $connection -> error;
 	}
 }
 

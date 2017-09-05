@@ -157,12 +157,10 @@ function sendGETXhttpRequest(url, IdOfelementToBeChanged) {
 	
 	xhttp.open("GET", url, true);
 	xhttp.send();*/
-	console.log("hei");
 	$.ajax({
 		type: "GET",
 		url: url, 
 		success: function(result) {
-			console.log(result);
 			if (IdOfelementToBeChanged != null) {
 				$(IdOfelementToBeChanged).html(result);
 			}
