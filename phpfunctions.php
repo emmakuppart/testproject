@@ -82,27 +82,29 @@ function createPopupContentForExistingItem($id) {
 	} else {
 		//echo $connection -> error;
 	}
-	$connection = null;
+
 	return $html;
 }
 
 function addItem($inputArray) {
 	global $connection;
-	
+
 	$input1 = $inputArray[0];
 	$input2 = $inputArray[1];
 	$input3 = $inputArray[2];
 	
 	$sql = 'INSERT INTO andmed (thing1, thing2, thing3) 
 			VALUES (:thing1, :thing2, :thing3)';
-	
+		
 	if ($query = $connection -> prepare($sql)) {
+		echo $sql;
 		$query -> bindParam(':thing1', $input1);
 		$query -> bindParam(':thing2', $input2);
 		$query -> bindParam(':thing3', $input3);
 		$query -> execute();
 	} else {
-		echo $connection -> error;
+		echo $sql;
+		print_r($connection -> error);
 	}
 }
 
@@ -129,8 +131,6 @@ function updateItem($id, $inputArray) {
 	$sql = 'UPDATE andmed 
 			SET thing1 = :thing1, thing2 = :thing2, thing3 = :thing3
 			WHERE ID = :id';
-			
-	echo $sql;
 			
 	if ($query = $connection -> prepare($sql)) {
 		$query -> bindParam(':thing1', $input1);

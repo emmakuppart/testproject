@@ -8,9 +8,9 @@ $thing3 =  $_GET['thing3'];
 $inputArray = array($thing1, $thing2, $thing3);
 
 if ($item_id == 'null') {
-	echo 'hei';
-	addItem($inputArray);
-} else {
 	echo 'jou';
+	addItem($inputArray);
+	echo 'jou';
+} else {
 	updateItem($item_id, $inputArray);
 }

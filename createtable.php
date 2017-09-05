@@ -1,4 +1,4 @@
 <?php
-include 'phpFunctions.php';
+include 'phpfunctions.php';
 
 echo createTableContent();
